@@ -1,0 +1,35 @@
+body {
+	background-color: #ffffcc;
+}
+
+.divCenter {
+	text-align: center;
+}
+
+table.pollTable {
+	margin: auto;
+	border: 1px solid black;
+}
+
+table.pollTable th,
+table.pollTable td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+table.pollTable td {
+	text-align: left;
+}
+
+table.pollTable td.center {
+	text-align: center;
+}
+
+p.buttons{
+	text-align: center;
+	padding: 10px;
+}
+
+hr {
+margin: auto;
+}

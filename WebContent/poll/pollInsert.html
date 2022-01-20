@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link href="./poll/poll.css" rel="stylesheet" type="text/css">
+
+    <title>JSP Poll</title>
+</head>
+<body>
+    <div class="divCenter">
+        <h2>투표 프로그램</h2>
+        <hr width="60%">
+        <b>설문 작성</b>
+        <form name="frmPoll" method="post" action="./poll/pollInsertProc.jsp">
+            <table class="pollTable" style="width: 600px;">
+                <tr>
+                    <th>질문</th>
+                    <td colspan="2">
+                        <input name="question" size="30" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="7">항목</th>
+                    <td>1 : <input name="item" required></td>
+                    <td>2 : <input name="item"></td>
+                </tr>
+                <tr>
+                    <td>3 : <input name="item"></td>
+                    <td>4 : <input name="item"></td>
+                </tr>
+                <tr>
+                    <td>5 : <input name="item"></td>
+                    <td>6 : <input name="item"></td>
+                </tr>
+                <tr>
+                    <td>7 : <input name="item"></td>
+                    <td>8 : <input name="item" ></td>
+                </tr>
+                <tr>
+                    <td>시작일</td>
+                    <td><input name="sdate" type="date" required></td>
+                </tr>
+                <tr>
+                    <td>종료일</td>
+                    <td><input name="edate" type="date" required></td>
+                </tr>
+                <tr>
+                    <td>복수 투표</td>
+                    <td>
+                        <input name="type" type="radio" value="1" checked> YES
+                        <input name="type" type="radio" value="0"> NO
+                    </td>
+                </tr>
+            </table>
+            <p class="buttons">
+                <button type="button" onclick="checkDate()">작성하기</button> &nbsp; &nbsp;
+                <button type="reset">다시쓰기</button> &nbsp; &nbsp;
+                <button type="button" 
+                	onclick="location.href='index.jsp?article=./poll/pollList.jsp'">
+                	리스트
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+
+<script>
+	function checkDate(){
+		let today = new Date();
+		today.setHours(9,0,0,0);
+		let sdate = new Date(document.frmPoll.sdate.value);
+		let edate = new Date(document.frmPoll.edate.value);
+		
+		if(sdate < today){
+			alert("투표 시작일은 오늘 이후로만 설정할 수 있습니다.");
+			document.frmPoll.sdate.focus();
+			return;
+		}
+		
+		if(sdate >= edate){
+			alert("투표 종료일은 시작일 이후로만 설정할 수 있습니다.");
+			document.frmPoll.edate.focus();
+			return;
+		}
+		
+		document.frmPoll.submit();
+	}
+</script>
+</html>

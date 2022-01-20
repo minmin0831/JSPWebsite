@@ -1,0 +1,26 @@
+body {
+	background-color: #ffffcc;
+}
+
+table,
+div {
+	width: 80%;
+	margin: auto;
+	border-collapse: collapse;
+}
+
+div.pageName {
+	background-color: #88FF99;
+	padding: 10px;
+	text-align: center;
+	margin: 50px auto 20px;
+}
+
+th,
+td {
+	padding: 5px;
+}
+
+td.buttons {
+	text-align: center;
+}
